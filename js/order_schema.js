@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const ordersDB = mongoose.createConnection("mongodb://localhost:27017/ordersDB", {
+const ordersDB = mongoose.createConnection("https://restaurant-app-61ro.onrender.com/ordersDB", {
     // useNewUrlParser: true,
     // useUnifiedTopology: true
 });
