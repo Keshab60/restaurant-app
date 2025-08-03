@@ -289,17 +289,24 @@
         </div>
     </div>
     <script>
-        document.querySelector("#div-imggg").addEventListener("click", () => {
-            const info = ` 
+     document.querySelector("#div-imggg").addEventListener("click", () => {
+            let infoElement = document.querySelector(".info");
+            if (infoElement.style.display === "none") {
+                const info = ` 
                    <a class="link" href="/profile">My profile</a>
-                   <a class="link"href="/cart">My orders</a>
-                   <a class="link" href="/coupons">Coupons </a>
-                   <a class="link" href="/notifications">Notifications</a>
+                   <a class="link"href="/cart">My Cart</a>
+                   <a class="link" href="/aboutus">Aboutus </a>
+                   <a class="link" href="/menu">Menu</a>
+                   <a class="link" href="/contactus">Contactus</a>
+                   <a class="link" href="/book-a-table">Book a table</a>
                    <a class="link" href="/logout">Log out</a>
             `
-            document.querySelector(".info").innerHTML = info;
+                document.querySelector(".info").innerHTML = info;
 
-            document.querySelector(".info").style.display = "flex";
+                infoElement.style.display = "flex";
+            } else {
+                infoElement.style.display = "none";
+            }
         })
         document.addEventListener("DOMContentLoaded", async function () {
             const response = await fetch('/user');
