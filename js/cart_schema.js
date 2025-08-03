@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const cartDB = mongoose.createConnection("https://restaurant-app-61ro.onrender.com/cartDB", {
+const cartDB = mongoose.createConnection("mongodb+srv://keshabg500:Keshab07112004@cluster0.vq06nt1.mongodb.net/cartDB", {
     // useNewUrlParser: true,
     // useUnifiedTopology: true
 });
