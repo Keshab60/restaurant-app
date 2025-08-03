@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const cartDB = mongoose.createConnection("mongodb://localhost:27017/cartDB", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true
 });
 cartDB.on("connected", () => console.log("Connected to subtotal"));
 
