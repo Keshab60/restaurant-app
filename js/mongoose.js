@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose');
 
-const loginandsignup = mongoose.createConnection("https://restaurant-app-61ro.onrender.com/loginandsignup", {
+const loginandsignup = mongoose.createConnection("mongodb+srv://keshabg500:Keshab07112004@cluster0.vq06nt1.mongodb.net/loginandsignup", {
     // useNewUrlParser: true,
     // useUnifiedTopology: true
 });
