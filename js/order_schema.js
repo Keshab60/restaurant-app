@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const ordersDB = mongoose.createConnection("mongodb://localhost:27017/ordersDB", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true
 });
 ordersDB.on("connected", () => console.log("Connected to ordersDB"));
 
