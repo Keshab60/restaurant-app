@@ -73,7 +73,7 @@
                     const itemId = orderInfoDiv.dataset.id; //.dataset: A special property that gives access to all 
                     //  data-* attributes.
                     //.id: This accesses the value of data-id.
-                    const response1 = await fetch(`/cart/delete/${itemId}`, {
+                    const response1 = await fetch(`https://restaurant-app-61ro.onrender.com/cart/delete/${itemId}`, {
                         method: "DELETE",
                     })
 
@@ -109,7 +109,7 @@
 
                         }
 
-                        const response2 = await fetch("http://localhost:3000/api/cart/subtotal", {
+                        const response2 = await fetch("https://restaurant-app-61ro.onrender.com/api/cart/subtotal", {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify(SubTotal)
@@ -156,7 +156,7 @@
 
         async function fetchingsubtotal() {
 
-            const response = await fetch("http://localhost:3000/api/cart/subtotal", {
+            const response = await fetch("https://restaurant-app-61ro.onrender.com/api/cart/subtotal", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(SubTotal)
