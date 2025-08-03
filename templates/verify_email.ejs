@@ -1,0 +1,149 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p> i am verify </p>
+
+    <form id="otpForm">
+        <input type="text" name="otp" placeholder="Enter OTP" required />
+        <button type="submit">Verify</button>
+    </form>
+    <p id="msg"></p>
+    <script>
+
+        document.getElementById("otpForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const Otp = e.target.otp.value;
+
+            const res = await fetch("/verify-otp", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ Otp }),
+            });
+
+            const result = await res.json();
+            document.getElementById("msg").textContent = result.message;
+            if (res.ok) {
+                window.location.href = result.redirect; //we  manually redirect to log in because when you fetch something and inside that you try to redirect then it would not happen like here we are fetching "/verify-otp"
+            }
+        });
+
+
+
+    </script>
+
+</body>
+
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+    <link rel="stylesheet" href="/css/verify_email.css">
+    
+</head>
+
+<body>
+    <div class="otp-container">
+        <div class="logo">
+            <img src="/images/keshab.png" alt="Company Logo">
+        </div>
+
+        <h1>Verify your account</h1>
+        <p class="subtitle">We've sent a 6-digit verification code to your Email</p>
+        <form id="otpForm">
+            <div class="otp-inputs">
+                <input type="text" class="otp-input" maxlength="1" pattern="\d*" inputmode="numeric" autofocus>
+                <input type="text" class="otp-input" maxlength="1" pattern="\d*" inputmode="numeric" required>
+                <input type="text" class="otp-input" maxlength="1" pattern="\d*" inputmode="numeric" required>
+                <input type="text" class="otp-input" maxlength="1" pattern="\d*" inputmode="numeric" required>
+                <input type="text" class="otp-input" maxlength="1" pattern="\d*" inputmode="numeric" required>
+                <input type="text" class="otp-input" maxlength="1" pattern="\d*" inputmode="numeric" required>
+            </div>
+            <button type="submit" class="verify-btn">Verify</button>
+        </form>
+        <p class="resend">
+            Didn't receive code? <a href="#" id="resend">Resend</a>
+            <span class="timer">(0:59)</span>
+        </p>
+        <p class="info">If you didn't receive the OTP, please check your internet connection and ensure that the email
+            you entered is correct</p>
+    </div>
+    <div>
+        <p id="msg"></p>
+    </div>
+
+
+    <script>
+        const inputs = document.querySelectorAll('.otp-input');
+        const form = document.getElementById("otpForm");
+        console.log(inputs)
+
+        inputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value.length === 1) {
+                    if (index < inputs.length - 1) {
+                        inputs[index + 1].focus();
+                    }
+                }
+            });
+
+
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && e.target.value.length === 0) {
+                    if (index > 0) {
+                        inputs[index - 1].focus();
+                    }
+                }
+            });
+        });
+
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const Otp = await Array.from(inputs).map(input => input.value).join("");
+            const email = localStorage.getItem("email");
+            localStorage.removeItem("email");
+            const res = await fetch("/verify-otp", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ Otp }),
+            });
+
+            const result = await res.json();
+            alert(result.message)
+            if (res.ok) {
+                window.location.href = result.redirect; //we  manually redirect to log in because when you fetch something and inside that you try to redirect then it would not happen like here we are fetching "/verify-otp"
+            }
+        });
+
+
+        document.querySelector("#resend").addEventListener("click", async () => {
+            const email = localStorage.getItem("email");
+            console.log(email)
+            console.log("keshaboooo")
+            const response = await fetch("http://127.0.0.1:3000/resend-otp", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email })
+            })
+
+            const resultt = await res.json();
+            alert(resultt.message)
+        })
+    </script>
+</body>
+
+</html>

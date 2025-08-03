@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href='https://fonts.googleapis.com/css?family=Baloo Bhai' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/signup.css">
+</head>
+
+
+<body>
+    <div id="container">
+        <form action="/signup" method="post" class="signup-form">
+            <div class="signup-box">
+                <div class="signup-header">
+                    <h2>Create Your Account</h2>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="name" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Create a password" required>
+                </div>
+
+                <button type="submit" class="signup-button">Sign Up</button>
+                <div class="login-link">
+                    Already have an account? <a href="/login">Log in</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.querySelector(".signup-form").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const email = document.getElementById("email").value;
+            localStorage.setItem("email", email);
+            e.target.submit();
+        });
+    </script>
+</body>
+
+</html>

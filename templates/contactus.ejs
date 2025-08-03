@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/contactus.css">
+</head>
+
+<body>
+  <div class="parent-container">
+    <div class="container">
+      <div class="contact-info">
+        <h2>Contact us</h2>
+        <p><i class="fas fa-map-marker-alt"></i> <strong>ADDRESS:</strong><br>Plot No. 456, 3rd Floor, Infocity
+          Avenue,
+          Patia, Bhubaneswar, Odisha – 751024</p>
+        <p><i class="fas fa-phone-alt"></i> <strong>PHONE:</strong><br>+91 94370 12345</p>
+        <p><i class="fas fa-envelope"></i> <strong>EMAIL:</strong><br>contact@yourcompany.in</p>
+        <p><i class="fas fa-globe"></i> <strong>WEBSITE:</strong><br>www.yourcompany.in</p>
+      </div>
+
+      <div class="contact-form">
+        <h2>Get in touch</h2>
+        <form>
+          <input id="name" type="text" placeholder="Name" required />
+          <input id="email" type="email" placeholder="Email" required />
+          <input id="subject" type="text" placeholder="Subject" required />
+          <textarea id="message" placeholder="Message" rows="5" required></textarea>
+          <button id="button" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector("#button").addEventListener("click", async () => {
+      const name = document.querySelector("#name").value
+      const email = document.querySelector("#email").value
+      const subject = document.querySelector("#subject").value
+      const message = document.querySelector("#message").value
+
+      const usermessage = {
+        Name: name,
+        Email: email,
+        Subject: subject,
+        Message: message
+      }
+
+      const response = await fetch("http://localhost:3000/userinfo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(usermessage)
+      });
+    })
+  </script>
+</body>
+
+</html>

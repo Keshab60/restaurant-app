@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu</title>
+    <link href='https://fonts.googleapis.com/css?family=Baloo Bhai' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/menu.css">
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="color1">
+            <img id="img" src="/images/keshab.png" alt="nothing">
+        </div>
+        <div class="color2">
+            <a id="home" href="/" name="#">Home</a>
+            <a id="profile" href="/profile" name="#">Profile</a>
+            <a id="menu" href="/menu" name="#">Menu</a>
+            <a id="about_us" href="/aboutus" name="#">About us</a>
+        </div>
+        <div class="color3">
+            <a href="/contactus" name="#" id="contact">Contact us</a>
+            <a href="/cart" name="#" id="cart">cart</a>
+        </div>
+        <div id="div-imggg">
+            <img class="imggg" src="/images/nature3.jpg" alt="nothing">
+            <div class="info">
+                <!-- <div class="info">
+                         <a class="link" href="#"><i class="fas fa-user"></i> My Profile</a>
+                         <a class="link" href="#"><i class="fas fa-box"></i> My Orders</a>
+                         <a class="link" href="#"><i class="fas fa-ticket-alt"></i> Coupons</a>
+                         <a class="link" href="#"><i class="fas fa-bell"></i> Notifications</a>
+                         <a class="link" href="#"><i class="fas fa-sign-out-alt"></i> Log out</a>
+                      </div> -->
+
+            </div>
+        </div>
+    </nav>
+    <div>
+        <h3 class="menu">MENU</h3>
+    </div>
+    <div>
+        <h3 class="meni" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="100">TOP DISHES FOR YOU</h3>
+    </div>
+    <a id="go_to_cart" href="/cart" name="#">Go to cart</a>
+    <div class="primary_div">
+        <div class="parent-div">
+            <div class="container">
+                <div class="favorite-heart">❤</div>
+                <img src="/images/mutton_curry.webp" alt="Chicken Tikka">
+                <div class="dish-info">
+                    <!-- <div class="chi_heart_sec"> -->
+                    <h1 class="dish-name">MUTTON CURRY</h1>
+
+                    <!-- </div> -->
+                    <div class="quantity-container">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="text" id="quantity" class="quantity-input" value="0" readonly>
+                        <button class="quantity-btn" onclick="increaseQuantity(this);cartStorage(this)">+</button>
+                    </div>
+                    <!-- <button onclick="placeOrder(this)">Place Order</button> -->
+                    <div class="price">
+                        <p>$</p>
+                        <p>25.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="favorite-heart">❤</div>
+                <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                    alt="Chicken Tikka">
+                <div class="dish-info">
+                    <h1 class="dish-name"> CHICKEN CURRY</h1>
+                    <div class="quantity-container">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="text" id="quantity" class="quantity-input" value="0" readonly>
+                        <button class="quantity-btn" onclick="increaseQuantity(this);cartStorage(this)">+</button>
+                    </div>
+                    <!-- <button onclick="placeOrder(this)">Place Order</button> -->
+                    <div class="price">
+                        <p>$</p>
+                        <p>25.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="favorite-heart">❤</div>
+                <img src="/images/butter_chicken.jpg" alt="Butter Chicken">
+                <div class="dish-info">
+                    <h1 class="dish-name">BUTTER CHICKEN</h1>
+                    <div class="quantity-container">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="text" id="quantity" class="quantity-input" value="0" readonly>
+                        <button class="quantity-btn" onclick="increaseQuantity(this);cartStorage(this)">+</button>
+                    </div>
+                    <!-- <button onclick="placeOrder(this)">Place Order</button> -->
+                    <div class="price">
+                        <p>$</p>
+                        <p>22.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="favorite-heart">❤</div>
+                <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                    alt="Biryani">
+                <div class="dish-info">
+                    <h1 class="dish-name">CHICKEN BIRYANI</h1>
+                    <div class="quantity-container">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="text" id="quantity" class="quantity-input" value="0" readonly>
+                        <button class="quantity-btn" onclick="increaseQuantity(this);cartStorage(this)">+</button>
+                    </div>
+                    <!-- <button onclick="placeOrder(this)">Place Order</button> -->
+                    <div class="price">
+                        <p>$</p>
+                        <p>27.00</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+        <div class="parent-div">
+            <div class="container">
+                <div class="favorite-heart">❤</div>
+                <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=400&q=80"
+                    alt="Chicken Tikka">
+                <div class="dish-info">
+                    <h1 class="dish-name">CRISPY FRIED CHICKEN</h1>
+                    <div class="quantity-container">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="text" id="quantity" class="quantity-input" value="0" readonly>
+                        <button class="quantity-btn" onclick="increaseQuantity(this);cartStorage(this)">+</button>
+                    </div>
+                    <!-- <button onclick="placeOrder(this)">Place Order</button> -->
+                    <div class="price">
+                        <p>$</p>
+                        <p>25.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="favorite-heart">❤</div>
+                <img src="https://images.unsplash.com/photo-1602253057119-44d745d9b860?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=400&q=80"
+                    alt="Chicken Tikka">
+                <div class="dish-info">
+                    <h1 class="dish-name">TANDOORI CHICKEN </h1>
+                    <div class="quantity-container">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="text" id="quantity" class="quantity-input" value="0" readonly>
+                        <button class="quantity-btn" onclick="increaseQuantity(this);cartStorage(this)">+</button>
+                    </div>
+                    <!-- <button onclick="placeOrder(this)">Place Order</button> -->
+                    <div class="price">
+                        <p>$</p>
+                        <p>25.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="favorite-heart">❤</div>
+                <img src="/images/dal_makhani.webp" alt="Butter Chicken">
+                <div class="dish-info">
+                    <h1 class="dish-name">DAL MAKHANI</h1>
+                    <div class="quantity-container">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="text" id="quantity" class="quantity-input" value="0" readonly>
+                        <button class="quantity-btn" onclick="increaseQuantity(this);cartStorage(this)">+</button>
+                    </div>
+                    <!-- <button onclick="placeOrder(this)">Place Order</button> -->
+                    <div class="price">
+                        <p>$</p>
+                        <p>22.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="favorite-heart">❤</div>
+                <img src="/images/palak_paneer.webp" alt="Biryani">
+                <div class="dish-info">
+                    <h1 class="dish-name">PALAK PANEER</h1>
+                    <div class="quantity-container">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="text" id="quantity" class="quantity-input" value="0" readonly>
+                        <button class="quantity-btn" onclick="increaseQuantity(this);cartStorage(this)">+</button>
+                    </div>
+                    <!-- <button onclick="placeOrder(this)">Place Order</button> -->
+                    <div class="price">
+                        <p>$</p>
+                        <p>27.00</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="parent-div">
+            <div class="container">
+                <div class="favorite-heart">❤</div>
+                <img src="/images/chana_masala.webp" alt="Chicken Tikka">
+                <div class="dish-info">
+                    <h1 class="dish-name">CHANA MASALA</h1>
+                    <div class="quantity-container">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="text" id="quantity" class="quantity-input" value="0" readonly>
+                        <button class="quantity-btn" onclick="increaseQuantity(this);cartStorage(this)">+</button>
+                    </div>
+                    <!-- <button onclick="placeOrder(this)">Place Order</button> -->
+                    <div class="price">
+                        <p>$</p>
+                        <p>25.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="favorite-heart">❤</div>
+                <img src="/images/mushroom_chilli.png" alt="Chicken Tikka">
+                <div class="dish-info">
+                    <h1 class="dish-name">MUSHROOM CHILLI</h1>
+                    <div class="quantity-container">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="text" id="quantity" class="quantity-input" value="0" readonly>
+                        <button class="quantity-btn" onclick="increaseQuantity(this);cartStorage(this)">+</button>
+                    </div>
+                    <!-- <button onclick="placeOrder(this)">Place Order</button> -->
+                    <div class="price">
+                        <p>$</p>
+                        <p>25.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="favorite-heart">❤</div>
+                <img src="/images/paneer_butter_masala.webp" alt="Butter Chicken">
+                <div class="dish-info">
+                    <h1 class="dish-name">PANEER BUTTER MASALA</h1>
+                    <div class="quantity-container">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="text" id="quantity" class="quantity-input" value="0" readonly>
+                        <button class="quantity-btn" onclick="increaseQuantity(this);cartStorage(this)">+</button>
+                    </div>
+                    <!-- <button onclick="placeOrder(this)">Place Order</button> -->
+                    <div class="price">
+                        <p>$</p>
+                        <p>22.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="favorite-heart">❤</div>
+                <img src="/images/malai_kofta.webp" alt="Biryani">
+                <div class="dish-info">
+                    <h1 class="dish-name">MALAI KOFTA</h1>
+                    <div class="quantity-container">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="text" id="quantity" class="quantity-input" value="0" readonly>
+                        <button class="quantity-btn" onclick="increaseQuantity(this);cartStorage(this)">+</button>
+                    </div>
+                    <!-- <button onclick="placeOrder(this)">Place Order</button> -->
+                    <div class="price">
+                        <p>$</p>
+                        <p>27.00</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <script>
+        document.querySelector("#div-imggg").addEventListener("click", () => {
+            const info = ` 
+                   <a class="link" href="/profile">My profile</a>
+                   <a class="link"href="/cart">My orders</a>
+                   <a class="link" href="/coupons">Coupons </a>
+                   <a class="link" href="/notifications">Notifications</a>
+                   <a class="link" href="/logout">Log out</a>
+            `
+            document.querySelector(".info").innerHTML = info;
+
+            document.querySelector(".info").style.display = "flex";
+        })
+        document.addEventListener("DOMContentLoaded", async function () {
+            const response = await fetch('/user');
+            const data = await response.json();
+            console.log(data)
+            if (data.success) {
+
+                document.querySelector("#div-imggg").style.display = "block";
+                document.querySelector("#profile").style.display = "inline";
+
+            }
+        })
+
+        async function cartStorage(cart) {
+
+            const cart1 = cart.parentElement;
+            console.log(cart1)
+            const cart2 = cart1.parentElement;
+            console.log(cart2)
+            const cart3 = cart2.parentElement
+            const image = cart3.getElementsByTagName("img");
+            console.log(image[0].src)
+            console.log(cart2.querySelector(".dish-name").innerText)
+            console.log(cart2.querySelector(".price").children[1].innerText)
+            console.log(cart1.querySelector("#quantity").value *
+                cart2.querySelector(".price").children[1].innerText)
+            const cartDetail = {
+                imageUrl: image[0].src,
+                Dishname: cart2.querySelector(".dish-name").innerText,
+                ItemQuantity: cart1.querySelector("#quantity").value,
+                price: cart2.querySelector(".price").children[1].innerText,
+                TotalPrice: cart1.querySelector("#quantity").value *
+                    cart2.querySelector(".price").children[1].innerText
+            }
+            console.log(cartDetail)
+            const response = await fetch("http://127.0.0.1:3000/api/cart", { //this link should be same as used in frontend
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(cartDetail),
+                credentials: "include"// this line is for sending the cookies to the BACKEND like when i login the user credential stored in a session but it did not send that to backend because in /api/cart the session is there if i did not include this line the session inside the /api/cart will show the user is not logged in or undefined
+                //we stored the user detail in a session for security purpose and that stored like a cookies
+            });
+
+
+            console.log(image)
+            console.log(" i am cart")
+
+
+        }
+
+
+        function increaseQuantity(increase) {
+            const ab = increase.parentElement;
+            const bc = ab.querySelector(".quantity-input")
+            let currentValue = parseInt(bc.value);
+            bc.value = currentValue + 1;
+        }
+
+        function decreaseQuantity(decrease) {
+            const aab = decrease.parentElement;
+            console.log(decrease.parentElement)
+            const bbc = aab.querySelector(".quantity-input")
+            let currentValue = parseInt(bbc.value);
+            if (currentValue > 0) { // Prevents going below 0 value
+                bbc.value = currentValue - 1;
+            }
+        }
+
+
+        async function placeOrder(button) {
+
+            const ab = button.parentElement;
+            const bc = ab.querySelector(".quantity-container")
+            const cd = bc.querySelector("#quantity").value;
+            // let currentValue = parseInt(bc.value); 
+            // bc.value = currentValue + 1;
+            console.log(cd)
+
+
+            const container = button.parentElement;
+            const dishName = container.querySelector(".dish-name").innerText;
+
+            const orderData = {
+                customerName: document.getElementById("name").value,
+                customerPhone: document.getElementById("phone").value,
+                customerAddress: document.getElementById("address").value,
+                dish: dishName,
+                orderQuantity: cd,
+                items: [{
+                    productName: document.getElementById("product").value,
+                    quantity: parseInt(document.getElementById("quantity").value),
+                    price: parseFloat(document.getElementById("price").value)
+                }],
+                totalPrice: parseFloat(document.getElementById("price").value) * parseInt(document.getElementById("quantity").value)
+            };
+
+            const response = await fetch("http://127.0.0.1:3000/api/orders", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(orderData),
+                credentials: "include"
+            });
+
+            const result = await response.json();
+            alert(result.message || "Order placed successfully!");
+        }
+
+
+
+        function increaseQuantity(increase) {
+            const ab = increase.parentElement;
+            const bc = ab.querySelector(".quantity-input")
+            let currentValue = parseInt(bc.value);
+            bc.value = currentValue + 1;
+        }
+
+        function decreaseQuantity(decrease) {
+            const aab = decrease.parentElement;
+            console.log(decrease.parentElement)
+            const bbc = aab.querySelector(".quantity-input")
+            let currentValue = parseInt(bbc.value);
+            if (currentValue > 0) { // Prevents going below 0 value
+                bbc.value = currentValue - 1;
+            }
+        }
+
+
+        document.addEventListener('DOMContentLoaded', async function () {
+            const hearts = document.querySelectorAll(".favorite-heart");
+
+        
+            try {
+                const get_fev = await fetch("http://127.0.0.1:3000/get-favorites", {
+                    method: "POST",
+                    credentials: "include"
+                });
+
+                if (get_fev.ok) {
+                    favorites = await get_fev.json();  // Assuming it's an array of { ImageUrl, dishname, price }
+                } else {
+                    console.log("Failed to fetch favorites from server.");
+                }
+            } catch (error) {
+                console.error("Error fetching favorites:", error);
+            }
+
+            hearts.forEach(heart => {
+                const parent = heart.parentElement;
+                const dishname = parent.querySelector(".dish-name").innerText;
+
+                // Make heart red if it's in localStorage
+                if (favorites.some(f => f.dishname === dishname)) {
+                    heart.classList.add("active");
+                }
+
+                heart.addEventListener("click", async function () {
+                    await this.classList.toggle('active');
+
+                    const imageUrl = parent.getElementsByTagName("img")[0].src;
+                    const dishname = parent.querySelector(".dish-name").innerText;
+                    const price = parent.querySelector(".price").getElementsByTagName("p")[1].innerText;
+
+                    let fav_info = {
+                        ImageUrl: imageUrl,
+                        dishname: dishname,
+                        price: price
+                    };
+
+                    // If heart is now active, add to localStorage and send to server
+                    if (this.classList.contains("active")) {
+                        // Check if already added in localStorage
+                        if (!favorites.some(f => f.dishname === dishname)) {
+                            // favorites.push(fav_info);
+                            // localStorage.setItem("favorites", JSON.stringify(favorites));
+
+                            // Send to server
+                            try {
+                                console.log('called for add')
+                                const response = await fetch("http://127.0.0.1:3000/fav", {
+                                    method: "POST",
+                                    headers: { "Content-Type": "application/json" },
+                                    body: JSON.stringify(fav_info),
+                                    credentials: "include"
+
+                                });
+
+                                if (!response.ok) {
+                                    console.log("Server error while saving favorite");
+                                }
+                            } catch (err) {
+                                console.error("Fetch error:", err);
+                            }
+                        }
+                    } else {
+                        // Remove from localStorage if un-favorited
+                        favorites = await favorites.filter(f => f.dishname !== dishname);
+                        await localStorage.setItem("favorites", JSON.stringify(favorites));
+                        console.log("called for delete")
+                        const response = await fetch("http://127.0.0.1:3000/fav-delete", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(fav_info),
+                            credentials: "include"
+                        });
+                        // console.log("called for delete")
+
+                    }
+                });
+            });
+        });
+
+
+
+
+    </script>
+
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+
+</html>

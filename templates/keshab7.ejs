@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In Bar</title>
+    <link href='https://fonts.googleapis.com/css?family=Baloo Bhai' rel='stylesheet'>
+</head>
+<style>
+    #navbar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: black;
+        display: grid;
+        grid-template-columns: 1fr 1.8fr 1fr 0.1fr;
+        grid-gap: 10px;
+        align-items: center;
+        font-size: large;
+        width: 100%;
+        z-index: 100;
+    }
+
+    #home,
+    #profile,
+    #menu,
+    #about_us,
+    #log_in,
+    #contact {
+        border-radius: 10px;
+    }
+
+    #home:hover,
+    #profile:hover,
+    #menu:hover,
+    #about_us:hover,
+    #log_in:hover,
+    #contact:hover {
+        transition: all 0.5s;
+        border: 2px solid #c2a059 !important;
+        border-radius: 20px;
+        padding: 0px 10px;
+    }
+
+    .color1 {
+        display: flex;
+    }
+
+    #img {
+        height: 71px;
+        width: 73px;
+        border-radius: 140px;
+    }
+
+    .color2 {
+        padding-left: 150px;
+    }
+
+    .color2 a,
+    .color3 a {
+        color: white;
+        text-decoration: none;
+        margin: 10px;
+    }
+
+    .color3 {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    #container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        align-content: center;
+    }
+
+    .box {
+        border: 2px solid aqua;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-content: center;
+        width: 520px;
+        height: 300px;
+        background-color: transparent;
+        border-radius: 10px;
+        backdrop-filter: blur(15px);
+        box-shadow: 1px 1px 15px aqua;
+    }
+
+    @media (max-width:1120px) {
+        #navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            font-size: small;
+        }
+    }
+
+    @media (max-width:500px) {
+        .box {
+            width: 350px;
+            height: 400px;
+        }
+
+        #create_account {
+            margin-top: 0px;
+        }
+
+        #lo {
+            text-align: center;
+        }
+
+        * {
+            text-shadow: none;
+        }
+    }
+
+    .login_form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 7px;
+    }
+
+    .To_signup {
+        display: flex;
+        gap: 5px;
+    }
+
+    #email,
+    #password {
+        background: transparent;
+        font-weight: bolder;
+        border-radius: 14px;
+        padding: 7px;
+        color: black;
+        width: 219px;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: white;
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    #email:hover,
+    #password:hover {
+        background: rgb(198, 198, 198);
+        color: black;
+    }
+
+    #login_button {
+        background: transparent;
+        border-radius: 14px;
+        padding: 7px;
+        width: 219px;
+    }
+
+    #login_button:hover {
+        color: black;
+        background: rgb(198, 198, 198);
+    }
+
+    .forget_password {
+        text-decoration: none;
+        color: black;
+    }
+
+    .forget_password:hover {
+        text-decoration: underline;
+        color: #1f1f1f;
+    }
+
+    #create_account {
+        text-decoration: none;
+        display: block;
+        margin-top: 15px;
+    }
+
+    #lo {
+        text-align: center;
+    }
+
+    #div-imggg {
+        display: none;
+        height: 30px;
+        width: 30px;
+        border-radius: 20px;
+    }
+
+    .imggg {
+        height: 100%;
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .info {
+        display: none;
+        gap: 15px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 85%;
+        top: 70%;
+        background-color: black;
+        padding: 10px 30px;
+    }
+
+    .link {
+        color: white;
+        text-decoration: none;
+    }
+
+    body {
+        background-image: url('/images/nature8.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        object-fit: cover;
+    }
+
+    * {
+        font-family: 'Baloo Bhai';
+    }
+</style>
+
+<body>
+
+    <div id="container">
+        <form action="/login" method="post">
+            <div class="box">
+                <div class="login_form">
+                    <div id="lo">
+                        <h3>Login</h3>
+                    </div>
+                    <input id="email" type="email" name="name" placeholder="USERNAME">
+                    <input id="password" type="text" name="password" placeholder="PASSWORD">
+                    <a href="/forgot_password" class="forget_password">Forgot username or password?</a>
+                    <button id="login_button" type="submit">Login</button>
+                    <div class="To_signup">
+                        <p>Don't have an account?</p>
+                        <a href="/signup" id="create_account">create your account</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+       
+    </script>
+</body>
+
+</html>

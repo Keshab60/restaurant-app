@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link href='https://fonts.googleapis.com/css?family=Baloo Bhai' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/cart.css">
+   
+</head>
+
+<body>
+    <h1>Shopping Cart</h1>
+
+    <div class="container">
+        <div id="heading-line">
+            <p>Items</p>
+            <p id="Title">Title</p>
+            <p id="price">Price</p>
+            <p id="Quantity">Quantity</p>
+            <p>Total Price</p>
+            <p>Remove</p>
+        </div>
+
+        <% cartf.forEach(item=> { %>
+            <div class="orderinfo" data-id="<%= item._id %>">
+                <img class="image" src="<%= item.imageUrl %>" alt="Item Image">
+                <h3 class="dish-name">
+                    <%= item.Dishname %>
+                </h3>
+                <h3>
+                    <%= item.price %>
+                </h3>
+                <h3>
+                    <%= item.ItemQuantity %>
+                </h3>
+                <h3>
+                    <%= item.TotalPrice %>
+                </h3>
+                <button class="delete-btn">×</button>
+            </div>
+            <% }); %>
+    </div>
+
+
+    <div class="cart-total">
+        <h3>Cart Totals</h3>
+        <div class="sub-cart-total subtotal">
+            <p>Subtotal</p>
+            <p>$0.00</p>
+        </div>
+        <div class="sub-cart-total delivery">
+            <p>Delivery Fee</p>
+            <p>$4</p>
+        </div>
+        <div class="sub-cart-total Total">
+            <h3>Total</h3>
+            <h3>$49</h3>
+        </div>
+        <div class="button-for-checkout">
+            <a href="/payment">proceed to checkout</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const deleteButtons = document.querySelectorAll(".delete-btn");
+
+            deleteButtons.forEach(btn => {
+                btn.addEventListener("click", async (e) => {
+                    const orderInfoDiv = e.target.closest(".orderinfo");  //this access the orderinfo div
+                    const itemId = orderInfoDiv.dataset.id; //.dataset: A special property that gives access to all 
+                    //  data-* attributes.
+                    //.id: This accesses the value of data-id.
+                    const response1 = await fetch(`/cart/delete/${itemId}`, {
+                        method: "DELETE",
+                    })
+
+
+                    if (response1.ok) {
+                        await orderInfoDiv.remove();
+                        const Orderinfo = document.querySelectorAll(".orderinfo");
+                        let k = 0;
+                        let i = 0;
+                        let subtottal = []
+                        Orderinfo.forEach(section => {
+                            console.log(section.children[4].innerText)
+                            i++;
+                            subtottal[i] = section.children[4].innerText
+                        })
+                        console.log(subtottal)
+                        subtottal.forEach(e => {
+                            k = k + parseInt(e);
+                        })
+                        console.log(k)
+
+                        const subb = document.querySelector(".subtotal").children[1]
+                        subb.innerText = `$${k}`
+                        const delivery = document.querySelector(".delivery").children[1].innerText
+                        const Total = k + parseInt(delivery.replace('$', '').trim())
+                        document.querySelector(".Total").children[1].innerText = `$ ${Total}`
+
+                        const SubTotal = {
+                            id: 123456,
+                            Subtotal: k,
+                            DeliveryCharge: document.querySelector(".delivery").children[1].textContent,
+                            Total: document.querySelector(".Total").children[1].textContent
+
+                        }
+
+                        const response2 = await fetch("http://localhost:3000/api/cart/subtotal", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(SubTotal)
+                        })
+
+
+                    } else {
+                        console.error("Failed to delete item");
+                        alert("Could not delete the item. Please try again.");
+                    }
+                })
+            })
+        })
+
+
+        const Orderinfo = document.querySelectorAll(".orderinfo");
+        let k = 0;
+        let i = 0;
+        let subtotal = []
+        Orderinfo.forEach(section => {
+            console.log(section.children[4].innerText)
+            i++;
+            subtotal[i] = section.children[4].innerText
+        })
+        console.log(subtotal)
+        subtotal.forEach(e => {
+            k = k + parseInt(e);
+        })
+        console.log(k)
+
+        const subb = document.querySelector(".subtotal").children[1]
+        subb.innerText = `$${k}`
+        const delivery = document.querySelector(".delivery").children[1].innerText
+        const Total = k + parseInt(delivery.replace('$', '').trim())
+        document.querySelector(".Total").children[1].innerText = `$ ${Total}`
+
+        const SubTotal = {
+            id: 123456,
+            Subtotal: k,
+            DeliveryCharge: document.querySelector(".delivery").children[1].textContent,
+            Total: document.querySelector(".Total").children[1].textContent
+
+        }
+
+        async function fetchingsubtotal() {
+
+            const response = await fetch("http://localhost:3000/api/cart/subtotal", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(SubTotal)
+            })
+        }
+        fetchingsubtotal();
+
+        console.log(Total)
+    </script>
+</body>
+
+</html>

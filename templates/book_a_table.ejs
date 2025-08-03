@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Table | Modern Bistro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/book_a_table.css">
+</head>
+
+<body>
+    <div class="booking-container">
+        <div class="booking-hero">
+            <h1>Reserve Your Table</h1>
+            <p>Experience fine dining at its best</p>
+        </div>
+
+        <form id="booking-form" class="booking-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="John Doe" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="john@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" placeholder="+1 (123) 456-7890" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Time</label>
+                    <select id="time" required>
+                        <option value="" disabled selected>Select Time</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="1:00 PM">1:00 PM</option>
+                        <option value="2:00 PM">2:00 PM</option>
+                        <option value="6:00 PM">6:00 PM</option>
+                        <option value="7:00 PM">7:00 PM</option>
+                        <option value="8:00 PM">8:00 PM</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="guests">Number of Guests</label>
+                <select id="guests" required>
+                    <option value="" disabled selected>Select Guests</option>
+                    <option value="1">1 Person</option>
+                    <option value="2">2 People</option>
+                    <option value="3-4">3-4 People</option>
+                    <option value="5-6">5-6 People</option>
+                    <option value="7+">7+ People</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="requests">Special Requests (Optional)</label>
+                <textarea id="requests" placeholder="Allergies, high chair, etc."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Confirm Reservation</button>
+        </form>
+
+        <div class="booking-info">
+            <div class="info-card">
+                <i class="fas fa-clock"></i>
+                <h3>Opening Hours</h3>
+                <p>Monday - Friday: 11 AM - 10 PM</p>
+                <p>Weekend: 10 AM - 11 PM</p>
+            </div>
+
+            <div class="info-card">
+                <i class="fas fa-phone"></i>
+                <h3>Need Help?</h3>
+                <p>Call us: <a href="tel:+11234567890">+1 (123) 456-7890</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal"><i class="fas fa-times"></i></span>
+            <i class="fas fa-check-circle"></i>
+            <h2>Reservation Confirmed!</h2>
+            <p id="confirmation-message"></p>
+            <button class="modal-btn">Done</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript
+        document.addEventListener('DOMContentLoaded', async function () {
+            const bookingForm = document.getElementById('booking-form');
+            const modal = document.getElementById('confirmation-modal');
+            const closeModal = document.querySelector('.close-modal');
+            const modalBtn = document.querySelector('.modal-btn');
+            const confirmationMessage = document.getElementById('confirmation-message');
+
+
+
+            // Form Submission
+            bookingForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    date: document.getElementById('date').value,
+                    time: document.getElementById('time').value,
+                    guests: document.getElementById('guests').value,
+                    requests: document.getElementById('requests').value
+                };
+
+                // Simulate booking confirmation
+                setTimeout(() => {
+                    confirmationMessage.innerHTML = `
+                        Thank you, <strong>${formData.name}</strong>!<br>
+                        Your table for <strong>${formData.guests}</strong> on 
+                        <strong>${new Date(formData.date).toLocaleDateString()}</strong> at 
+                        <strong>${formData.time}</strong> has been reserved.
+                        ${formData.requests ? `<br><br>Special Request: <em>${formData.requests}</em>` : ''}
+                    `;
+                    modal.style.display = 'flex';
+                    bookingForm.reset();
+                }, 1000);
+                
+                const response = await fetch("http://127.0.0.1:3000/book-a-tablee", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(formData),
+                    credentials:"include"
+                });
+
+            });
+
+            // Close Modal
+            closeModal.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            modalBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            // Set min date to today
+            const dateInput = document.getElementById('date');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        });
+    </script>
+</body>
+
+</html>

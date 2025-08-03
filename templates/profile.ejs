@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> User Profile</title>
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Combined Sidebar (Header + Contact) -->
+        <aside class="profile-sidebar">
+            <img src="" class="profile-image" alt="">
+            <label for="profileimage" id="profileimg">Choose a Photo</label>
+            <input type="file" name="profileimagge" id="profileimage" style="display:none;">
+
+            <h1 class="profile-name">
+                <%=user.email%>
+            </h1>
+
+            <ul class="contact-info">
+                <li><i class="fas fa-envelope"></i>
+                    <%=user.email%>
+                </li>
+                <li><i class="fas fa-phone"></i> +91 7608826206</li>
+                <li><i class="fas fa-map-marker-alt"></i> Random Address</li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="profile-main">
+            <h2 class="section-title"><i class="fas fa-receipt"></i> Recent Orders</h2>
+            <table class="order-history">
+                <thead>
+                    <tr>
+                        <th>Order #</th>
+                        <th>Date</th>
+                        <th>Items</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#8542</td>
+                        <td>June 10, 2023</td>
+                        <td>3 items</td>
+                        <td>$48.75</td>
+                        <td><span class="status-delivered">Delivered</span></td>
+                    </tr>
+                    <tr>
+                        <td>#8321</td>
+                        <td>June 5, 2023</td>
+                        <td>2 items</td>
+                        <td>$32.50</td>
+                        <td><span class="status-delivered">Delivered</span></td>
+                    </tr>
+                    <tr>
+                        <td>#8199</td>
+                        <td>June 1, 2023</td>
+                        <td>4 items</td>
+                        <td>$65.20</td>
+                        <td><span class="status-delivered">Delivered</span></td>
+                    </tr>
+                    <tr>
+                        <td>#8065</td>
+                        <td>May 28, 2023</td>
+                        <td>1 item</td>
+                        <td>$18.99</td>
+                        <td><span class="status-cancelled">Cancelled</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 class="section-title"><i class="fas fa-heart"></i> Favorite Dishes</h2>
+            <div class="favorite-dishes">
+                <% fav_info.forEach(item=> { %>
+                    <div class="dish-card">
+                        <img src="<%=  item.ImageUrl %>" alt=" Spicy Pasta" class="dish-image">
+                        <div class="dish-info">
+                            <div class="dish-name">
+                                <%= item.dishname %>
+                            </div>
+                            <div class="dish-price">
+                                <%=item.price%>
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+            </div>
+
+            <h2 class="section-title"><i class="fas fa-calendar-alt"></i> Upcoming Reservations</h2>
+            <table class="reservation-history">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Party Size</th>
+                        <th>Special Requests</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% book_a_table_infos.forEach(item=> { %>
+                        <tr>
+                            <td>
+                                <%=item.date%>
+                            </td>
+                            <td>
+                                <%=item.time%>
+                            </td>
+                            <td>
+                                <%=item.guests%> people
+                            </td>
+                            <td>
+                                <%=item.requests%>
+                            </td>
+                            <td><span class="status-confirmed">Confirmed</span></td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <script>
+
+        const input = document.getElementById("profileimage")
+        const img = document.querySelector(".profile-image")
+        const label = document.querySelector("#profileimg")
+
+        const imgfile = localStorage.getItem("savedImage")
+        if (img) {
+            img.src = imgfile;
+        }
+        input.addEventListener("change", function () {
+            const imgurl = input.files[0]
+            if (imgurl) {
+                const reader = new FileReader();//we create a object here
+                reader.onload = function (e) {
+                    const imagefile = e.target.result;//here it takes the img url
+                    img.src = imagefile;
+                    localStorage.setItem('savedImage', imagefile);
+                };
+
+                reader.readAsDataURL(imgurl);//after it reads the file and convert to actual url it automatically called this "reader.onload = function (e) "
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>

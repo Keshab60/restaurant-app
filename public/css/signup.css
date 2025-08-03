@@ -1,0 +1,208 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Baloo Bhai', sans-serif;
+    }
+
+    body {
+        background-color: white;
+        background-image: url('https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-9b88-61f7-9b6c-9012d70a9313/raw?se=2025-07-04T13%3A42%3A29Z&sp=r&sv=2024-08-04&sr=b&scid=1275d171-10e4-5d4e-aa8e-b7a65fece607&skoid=864daabb-d06a-46b3-a747-d35075313a83&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-04T12%3A41%3A14Z&ske=2025-07-05T12%3A41%3A14Z&sks=b&skv=2024-08-04&sig=S3J%2BI6oXcA8q1hjus135eYC9WJHnXmJo5e8wffZ0Lck%3D');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 100vh;
+    }
+
+    #navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 15px 5%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        backdrop-filter: blur(5px);
+    }
+
+    .nav-logo img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 20px;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 15px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        background-color: #c2a059;
+        color: #121212;
+    }
+
+    .nav-contact a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 15px;
+        border-radius: 20px;
+        background-color: #c2a059;
+        transition: all 0.3s ease;
+    }
+
+    .nav-contact a:hover {
+        background-color: #a58a4d;
+    }
+
+    #container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    .signup-box {
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 40px;
+        width: 100%;
+        max-width: 500px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .signup-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .signup-header h2 {
+        color: #c2a059;
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .signup-header p {
+        color: #aaa;
+        font-size: 14px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #c2a059;
+        font-size: 14px;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #333;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+
+    .form-group input:focus {
+        outline: none;
+        border-color: #c2a059;
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .form-group input::placeholder {
+        color: #aaa;
+    }
+
+    .signup-button {
+        width: 100%;
+        padding: 12px;
+        background-color: #c2a059;
+        color: #121212;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+    }
+
+    .signup-button:hover {
+        background-color: #a58a4d;
+    }
+
+
+    .login-link {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #aaa;
+    }
+
+    .login-link a {
+        color: #c2a059;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .login-link a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        #navbar {
+            flex-direction: column;
+            padding: 15px;
+        }
+
+        .nav-logo {
+            margin-bottom: 15px;
+        }
+
+        .nav-links {
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .signup-box {
+            padding: 30px 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .nav-links a {
+            padding: 6px 10px;
+            font-size: 14px;
+        }
+
+        .signup-box {
+            width: 350px;
+            padding: 25px 15px;
+        }
+
+        .signup-header h2 {
+            font-size: 24px;
+        }
+    }

@@ -1,0 +1,103 @@
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .parent-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background: url("https://www.clubmahindra.com/blog/media/section_images/vegetarian-194f3130c95fbc6.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 20px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1100px;
+    color: white;
+  }
+
+  .contact-info {
+    padding-top: 0;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .contact-info h2 {
+    margin-bottom: 20px;
+  }
+
+  .contact-info p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+
+  .contact-form {
+    background-color: white;
+    color: black;
+    padding: 25px;
+    border-radius: 10px;
+    width: 100%;
+  }
+
+  .contact-form h2 {
+    margin-bottom: 20px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .contact-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+    width: 100%;
+  }
+
+  .contact-form button:hover {
+    background-color: #0056b3;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 40px;
+    }
+
+    .contact-info {
+      padding-top: 5vh;
+      width: 45%;
+      margin-bottom: 0;
+    }
+
+    .contact-form {
+      width: 50%;
+      padding: 30px;
+    }
+
+    .contact-form button {
+      width: auto;
+    }
+  }

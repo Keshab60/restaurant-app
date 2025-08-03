@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+#div-imggg {
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+}
+
+.imggg {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.info {
+    display: none;
+    gap: 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 85%;
+    top: 70%;
+    background-color: black;
+    padding: 10px 30px;
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+}
