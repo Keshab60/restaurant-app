@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const book_a_table = mongoose.createConnection("mongodb://127.0.0.1:27017/book_a_table", {
+const book_a_table = mongoose.createConnection("https://restaurant-app-61ro.onrender.com/book_a_table", {
     // useNewUrlParser: true,
     // useUnifiedTopology: true
 });
