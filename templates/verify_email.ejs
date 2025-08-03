@@ -116,7 +116,7 @@
             const Otp = await Array.from(inputs).map(input => input.value).join("");
             const email = localStorage.getItem("email");
             localStorage.removeItem("email");
-            const res = await fetch("/verify-otp", {
+            const res = await fetch("https://restaurant-app-61ro.onrender.com/verify-otp", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ Otp }),
@@ -134,7 +134,7 @@
             const email = localStorage.getItem("email");
             console.log(email)
             console.log("keshaboooo")
-            const response = await fetch("http://127.0.0.1:3000/resend-otp", {
+            const response = await fetch("https://restaurant-app-61ro.onrender.com/resend-otp", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email })
