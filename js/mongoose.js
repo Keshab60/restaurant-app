@@ -2,8 +2,8 @@
 const mongoose = require('mongoose');
 
 const loginandsignup = mongoose.createConnection("mongodb://127.0.0.1:27017/loginandsignup", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true
 });
 loginandsignup.on("connected", () => console.log("Connected to loginandsignup"));
 
