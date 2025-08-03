@@ -29,7 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(express.static('js'));
 app.use(cors({
-  origin: "http://127.0.0.1:3000",  // or wherever your frontend runs //this line means it allows all the data sended from this link  
+  origin: "https://restaurant-app-61ro.onrender.com",  // or wherever your frontend runs //this line means it allows all the data sended from this link  
   credentials: true
 }));
 
@@ -502,110 +502,6 @@ app.get('/logout', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`http://localhost:${port}`)
+  console.log(`https://restaurant-app-61ro.onrender.com`)
 })
 
-// const express = require('express');
-// const ejs = require('ejs');
-// const path = require('path');
-// const bcrypt = require('bcryptjs');
-// const session = require('express-session');
-// const signupinfo = require('./mongoose.js');
-
-// const app = express();
-// const port = 3000;
-
-// // Paths
-// const templatepath = path.join(__dirname, '../templates');
-
-// // Middleware
-// app.set('view engine', 'ejs');
-// app.set("views", templatepath);
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.static('public'));
-// app.use(express.static('js'));
-
-// // Session Configuration
-// app.use(session({
-//   secret: "your_secret_key", // Change this to a strong secret key
-//   resave: false,
-//   saveUninitialized: false
-// }));
-
-// // Middleware to Check if User is Authenticated
-// function isAuthenticated(req, res, next) {
-//   if (req.session.user) {
-//     return next();
-//   }
-//   res.redirect('/login');
-// }
-// app.get('/user', (req, res) => {
-//   if (req.session.user) {
-//     res.json({ success: true });
-//   } else {
-//     res.json({ success: false});
-//   }
-// });
-// // Route: Home (Protected)
-// app.get('/', (req, res) => {
-//   res.render("keshab9");
-// });
-
-// // Route: Login Page
-// app.get('/login', (req, res) => {
-//   res.render("keshab7");
-// });
-
-// // Route: Handle Login
-// app.post('/login', async (req, res) => {
-// const { name, password } = req.body;
-// console.log(name,password)
-//   const user = await signupinfo.findOne({ name });
-// console.log(user)
-//   if (user && await bcrypt.compare(password, user.password)) {
-//     req.session.user = user; // Store user in session
-//     console.log("bbjhbhbh")
-//     res.redirect("/");
-//   } else {
-//     res.render("invalid_credentials");
-//   }
-// });
-
-// // Route: Signup Page
-// app.get('/signup', (req, res) => {
-//   res.render("signup");
-// });
-
-// // Route: Handle Signup
-// app.post('/signup', async (req, res) => {
-//   const { name, password } = req.body;
-
-//   if (name && password) {
-//     const hashedPassword = await bcrypt.hash(password, 10); // Hash password
-//     await signupinfo.create({ name, password: hashedPassword });
-//     res.redirect("/login");
-//   } else {
-//     res.redirect("/signup");
-//   }
-// });
-
-// // Protected Routes
-// app.get('/profile', isAuthenticated, (req, res) => res.render("profile", { user: req.session.user.name }));
-// app.get('/aboutus', isAuthenticated, (req, res) => res.render("aboutus"));
-// app.get('/menu', isAuthenticated, (req, res) => res.render("menu"));
-// app.get('/orders', isAuthenticated, (req, res) => res.render("order"));
-// app.get('/coupons', isAuthenticated, (req, res) => res.render("coupon"));
-// app.get('/notifications', isAuthenticated, (req, res) => res.render("notification"));
-
-// // Route: Logout
-// app.get('/logout', (req, res) => {
-//   req.session.destroy(() => {
-//     res.redirect('/login');
-//   });
-// });
-
-// // Start Server
-// app.listen(port, () => {
-//   console.log(`Server running on http://localhost:${port}`);
-// });
