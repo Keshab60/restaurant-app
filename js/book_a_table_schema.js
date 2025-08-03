@@ -1,8 +1,8 @@
 const mongoose = require("mongoose")
 
 const book_a_table = mongoose.createConnection("mongodb://127.0.0.1:27017/book_a_table", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true
 });
 book_a_table.on("connected", () => console.log("Connected to book_a_table"));
 
