@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const fav_connect = mongoose.createConnection("https://restaurant-app-61ro.onrender.com/favorate_dishes", {
+const fav_connect = mongoose.createConnection("mongodb+srv://keshabg500:Keshab07112004@cluster0.vq06nt1.mongodb.net/favorate_dishes", {
     // useNewUrlParser: true,
     // useUnifiedTopology: true
 });
