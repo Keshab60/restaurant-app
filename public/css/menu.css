@@ -409,8 +409,8 @@
             }
 
             .container {
-                height: 350px;
-                width: 350px;
+                height: 300px;
+                width: 300px;
             }
 
             .meni {
@@ -429,4 +429,8 @@
             #go_to_cart {
                 padding-left: 23px;
             }
+            .dish-info {
+                font-size: 1.33rem;
+            }
+                                
         }
