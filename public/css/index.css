@@ -955,6 +955,10 @@ text-align: center;
         display: none;
     }
 
+    #log_in,#about_us{
+        display:flex;
+    }
+
     #navbar {
         display: flex;
         justify-content: space-between;
