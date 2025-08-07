@@ -55,6 +55,7 @@ body {
 #menu,
 #about_us,
 #log_in,
+#book,
 #contact,
 #cart {
     border-radius: 10px;
@@ -65,6 +66,7 @@ body {
 #menu:hover,
 #about_us:hover,
 #log_in:hover,
+#book:hover,
 #contact:hover,
 #cart:hover {
     transition: all 0.5s;
@@ -858,6 +860,7 @@ text-align: center;
     #menu,
     #about_us,
     #log_in,
+    #book,
     #contact,
     #cart {
         margin: 4px;
@@ -877,6 +880,7 @@ text-align: center;
     #menu,
     #about_us,
     #log_in,
+    #book,
     #contact,
     #cart {
         font-size: 0.9rem;
@@ -950,14 +954,16 @@ text-align: center;
         padding-left: 20px;
     }
 
-    .color2,
+   
     .color3 {
         display: none;
     }
 
-    #log_in,#about_us{
-        display:flex;
+    #menu,#about_us,#profile,#home,#book{
+        display: none;
+        
     }
+  
 
     #navbar {
         display: flex;
