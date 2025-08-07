@@ -434,7 +434,8 @@
             }
             .info{
                 left: 65.7%;
-                font-size: 0.8rem;
+                gap: 5px;
+                font-size: 0.75rem;
             }
             #img{
                 height:50px;
