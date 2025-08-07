@@ -290,6 +290,10 @@
         </div>
     </div>
     <script>
+const savedimg = localStorage.getItem("savedImage")
+        if (savedimg) {
+            document.querySelector(".imggg").src = savedimg
+        }
      document.querySelector("#div-imggg").addEventListener("click", () => {
             let infoElement = document.querySelector(".info");
             if (infoElement.style.display === "none") {
