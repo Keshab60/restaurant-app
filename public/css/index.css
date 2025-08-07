@@ -1217,6 +1217,10 @@ text-align: center;
              height: 42px;
              width: 42px;
          }
+        .info{
+            font-size: 0.7rem;
+            left: 64%;
+        }
 }
 
 :root {
