@@ -433,7 +433,8 @@
                 font-size: 1.3rem;
             }
             .info{
-                left: 65.7%;
+                left: 64%;
+                top:99%;
                 gap: 5px;
                 font-size: 0.75rem;
             }
