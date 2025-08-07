@@ -1210,7 +1210,9 @@ text-align: center;
     .text{
          font-size: 0.7rem;
     }
-    
+    .slider-wrapper {
+        height: 220px;
+    }
             
 }
 
