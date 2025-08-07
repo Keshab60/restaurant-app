@@ -1178,6 +1178,42 @@ text-align: center;
     }
 }
 
+@media (max-width:370px) {
+        #front_img,#gradient1{
+            height:330px;
+        }
+         #dis,#re,#h1{
+             font-size:1.4rem;
+        }
+        #h2{
+            font-size: 0.8rem;
+        }
+    .h3{
+         font-size: 0.8rem;
+    }
+    .about_headline h1 {
+         font-size: 0.9rem;
+    }
+        #arrow-img{
+            height: 75px;
+            margin-left: 0px;
+        }
+        #about {
+            font-size: 0.6rem;
+            padding: 10px;
+        }
+    .button{
+        width: 60px;
+        font-size: 0.5rem;
+        height: 25px;
+    }
+    .text{
+         font-size: 0.7rem;
+    }
+    
+            
+}
+
 :root {
     --primary-color: #e63946;
     --secondary-color: #f1faee;
