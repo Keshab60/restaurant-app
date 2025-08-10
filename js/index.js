@@ -498,7 +498,7 @@ app.post("/userprofileimg", isAuthenticated, async (req, res) => {
   const profileimgURL= new profileIMG({ imgURL: req.body.imgURL, userId: currentUserId })
    const profileimgURLL = await profileIMG.findOne({userId: currentUserId })
   if(profileimgURLL){
-    await profileIMG.updateOne({userId: currentUserId },{ $set: { imgURL:req.body.imgURL  } } );
+     profileIMG.updateOne({userId: currentUserId },{ $set: { imgURL:req.body.imgURL  } } );
   }else{
   await profileimgURL.save()
   }
