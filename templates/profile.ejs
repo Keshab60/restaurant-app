@@ -135,9 +135,10 @@
         const imgfile = await fetch("https://restaurant-app-61ro.onrender.com/getuserprofileimg", {
                                     method: "POST",
                                     credentials: "include"
-
                                 });
-        if (img) {
+        const data = await imgfile.json();
+ 
+        if (img && data.image) {
             img.src = imgfile;
         }
         input.addEventListener("change", async function () {
