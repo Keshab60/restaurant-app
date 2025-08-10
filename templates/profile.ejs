@@ -136,7 +136,7 @@
         if (img) {
             img.src = imgfile;
         }
-        input.addEventListener("change", function () {
+        input.addEventListener("change", async function () {
             const imgurl = input.files[0]
             if (imgurl) {
                 const reader = new FileReader();//we create a object here
