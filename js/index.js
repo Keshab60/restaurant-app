@@ -466,9 +466,10 @@ app.post("/fav", isAuthenticated, async (req, res) => {
   }
 })
 
-app.post("/fav-delete", async (req, res) => {
+app.post("/fav-delete", isAuthenticated, async (req, res) => {
+   const currentUserId = req.session.user._id
   let fav = new favv(req.body)
-  const dish = await favv.findOne({ dishname: req.body.dishname })
+  const dish = await favv.findOne({ dishname: req.body.dishname,userId: currentUserId })
   console.log(dish)
   if (dish) {
     console.log("already exist")
@@ -500,7 +501,12 @@ app.post("/userprofileimg", isAuthenticated, async (req, res) => {
 
 })
 
+app.post("/getuserprofileimg", isAuthenticated, async (req, res) => {
+  const currentUserId = req.session.user._id;
+  const profileimg = await profileimg.find({userId: currentUserId })
+  res.json({ message: "successsfully added the img url" })
 
+})
 //FOR LOG OUT
 app.get('/logout', (req, res) => {
   req.session.destroy(() => {
