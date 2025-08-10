@@ -131,7 +131,7 @@
         const input = document.getElementById("profileimage")
         const img = document.querySelector(".profile-image")
         const label = document.querySelector("#profileimg")
-
+document.addEventListener("DOMContentLoaded", async () => {
         const imgfile = await fetch("https://restaurant-app-61ro.onrender.com/getuserprofileimg", {
                                   method: "POST",
                                   headers: { "Content-Type": "application/json" },
@@ -163,6 +163,7 @@
 
 
         })
+});
     </script>
 </body>
 
