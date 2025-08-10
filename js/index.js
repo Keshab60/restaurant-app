@@ -492,7 +492,13 @@ app.post("/book-a-tablee", isAuthenticated, async (req, res) => {
 
 })
 
+app.post("/userprofileimg", isAuthenticated, async (req, res) => {
+  const currentUserId = req.session.user._id;
+  let profileimgURL= new profileimg({ ...req.body, userId: currentUserId })
+  await profileimgURL.save()
+  res.json({ message: "successsfully added the img url" })
 
+})
 
 
 //FOR LOG OUT
