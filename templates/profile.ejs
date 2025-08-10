@@ -138,8 +138,8 @@
                                 });
         const data = await imgfile.json();
  
-        if (img && data.image) {
-            img.src = imgfile;
+        if (img && data.imgURL) {
+            img.src = data.imgURL ;
         }
         input.addEventListener("change", async function () {
             const imgurl = input.files[0]
