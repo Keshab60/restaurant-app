@@ -23,9 +23,9 @@ const port = 3000
 
 const templatepath = path.join(__dirname, '../templates')
 app.set('view engine', 'ejs')
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
 app.set("views", templatepath)
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ limit: '10mb', extended: true }));
 // for image
 app.use(express.static('public'));
 app.use(express.static('js'));
