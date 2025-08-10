@@ -504,8 +504,12 @@ app.post("/userprofileimg", isAuthenticated, async (req, res) => {
 app.post("/getuserprofileimg", isAuthenticated, async (req, res) => {
   const currentUserId = req.session.user._id;
   const profileimgURL = await profileIMG.findOne({userId: currentUserId })
+if(profileimgURL){
   res.json({ imgURL: profileimgURL.imgURL})
-
+}
+  else{
+    res.json({ message:"the url is not present"})
+  }
 })
 //FOR LOG OUT
 app.get('/logout', (req, res) => {
