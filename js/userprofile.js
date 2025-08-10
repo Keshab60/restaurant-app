@@ -6,10 +6,8 @@ const userprofileimg = mongoose.createConnection("mongodb+srv://keshabg500:Kesha
 userprofile.on("connected", () => console.log("Connected to userprofile"));
 
 const userprofileimgschema = new mongoose.Schema({
-    id:{ type: Number, required: true },
-    Subtotal: { type: String, required: true },
-    DeliveryCharge: { type: String, required: true },
-    Total:{ type: String, required: true }
+    imgURL:{type: String, required:true},
+    userId: { type: String, required:true }
 
 
 });
