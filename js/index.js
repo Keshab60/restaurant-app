@@ -10,7 +10,7 @@ const Order = require("./order_schema.js");
 const cartt = require("./cart_schema.js");
 const cartt2 = require("./subtotal_schema.js");
 const favv = require("./fav_schema.js");
-const profileimg = require("./userprofile.js");
+const profileIMG = require("./userprofile.js");
 const book = require("./book_a_table_schema.js")
 const usersenddata = require("./contact_us_message.js")
 const paypal = require('@paypal/checkout-server-sdk');
@@ -495,7 +495,7 @@ app.post("/book-a-tablee", isAuthenticated, async (req, res) => {
 
 app.post("/userprofileimg", isAuthenticated, async (req, res) => {
   const currentUserId = req.session.user._id;
-  const profileimgURL= new profileimg({ imgURL: req.body.imgURL, userId: currentUserId })
+  const profileimgURL= new profileIMG({ imgURL: req.body.imgURL, userId: currentUserId })
   await profileimgURL.save()
   res.json({ message: "successsfully added the img url" })
 
@@ -503,7 +503,7 @@ app.post("/userprofileimg", isAuthenticated, async (req, res) => {
 
 app.post("/getuserprofileimg", isAuthenticated, async (req, res) => {
   const currentUserId = req.session.user._id;
-  const profileimgURL = await profileimg.findOne({userId: currentUserId })
+  const profileimgURL = await profileIMG.findOne({userId: currentUserId })
   res.json({ imgURL: profileimgURL.imgURL})
 
 })
