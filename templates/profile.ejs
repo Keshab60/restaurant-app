@@ -143,7 +143,13 @@
                 reader.onload = function (e) {
                     const imagefile = e.target.result;//here it takes the img url
                     img.src = imagefile;
-                    localStorage.setItem('savedImage', imagefile);
+                     const response = await fetch("https://restaurant-app-61ro.onrender.com/userprofileimg", {
+                                    method: "POST",
+                                    headers: { "Content-Type": "application/json" },
+                                    body: JSON.stringify(imagefile),
+                                    credentials: "include"
+
+                                });
                 };
 
                 reader.readAsDataURL(imgurl);//after it reads the file and convert to actual url it automatically called this "reader.onload = function (e) "
