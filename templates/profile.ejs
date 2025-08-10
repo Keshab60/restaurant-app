@@ -132,7 +132,13 @@
         const img = document.querySelector(".profile-image")
         const label = document.querySelector("#profileimg")
 
-        const imgfile = localStorage.getItem("savedImage")
+        const imgfile = await fetch("https://restaurant-app-61ro.onrender.com/getuserprofileimg", {
+                                    method: "POST",
+                                    headers: { "Content-Type": "application/json" },
+                                    body: JSON.stringify(imagefile),
+                                    credentials: "include"
+
+                                });
         if (img) {
             img.src = imgfile;
         }
