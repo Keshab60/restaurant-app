@@ -496,7 +496,12 @@ app.post("/book-a-tablee", isAuthenticated, async (req, res) => {
 app.post("/userprofileimg", isAuthenticated, async (req, res) => {
   const currentUserId = req.session.user._id;
   const profileimgURL= new profileIMG({ imgURL: req.body.imgURL, userId: currentUserId })
+   const profileimgURLL = await profileIMG.findOne({userId: currentUserId })
+  if(profileimgURLL){
+    await Model.updateOne({userId: currentUserId },{ $set: { imgURL:req.body.imgURL  } } );
+  }else{
   await profileimgURL.save()
+  }
   res.json({ message: "successsfully added the img url" })
 
 })
