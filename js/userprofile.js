@@ -3,7 +3,7 @@ const userprofileimg = mongoose.createConnection("mongodb+srv://keshabg500:Kesha
     // useNewUrlParser: true,
     // useUnifiedTopology: true
 });
-userprofile.on("connected", () => console.log("Connected to userprofile"));
+userprofileimg.on("connected", () => console.log("Connected to userprofile"));
 
 const userprofileimgschema = new mongoose.Schema({
     imgURL:{type: String, required:true},
