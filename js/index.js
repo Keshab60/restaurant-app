@@ -504,7 +504,7 @@ app.post("/userprofileimg", isAuthenticated, async (req, res) => {
 app.post("/getuserprofileimg", isAuthenticated, async (req, res) => {
   const currentUserId = req.session.user._id;
   const profileimgURL = await profileimg.find({userId: currentUserId })
-  res.json({ imgURL: profileimg })
+  res.json({ imgURL: profileimgURL[0].imgURL})
 
 })
 //FOR LOG OUT
