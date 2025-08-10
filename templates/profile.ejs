@@ -132,15 +132,15 @@
         const img = document.querySelector(".profile-image")
         const label = document.querySelector("#profileimg")
 
-        const imgfile = await fetch("https://restaurant-app-61ro.onrender.com/getuserprofileimg", {
-                                    method: "POST",
-                                    credentials: "include"
-                                });
-        const data = await imgfile.json();
+       // const imgfile = await fetch("https://restaurant-app-61ro.onrender.com/getuserprofileimg", {
+                                  //  method: "POST",
+                                  //  credentials: "include"
+                               // });
+        //const data = await imgfile.json();
  
-        if (img && data.imgURL) {
-            img.src = data.imgURL ;
-        }
+        //if (img && data.imgURL) {
+        //    img.src = data.imgURL ;
+        //}
         input.addEventListener("change", async function () {
             const imgurl = input.files[0]
             if (imgurl) {
@@ -148,13 +148,13 @@
                 reader.onload = async function (e) {
                     const imagefile = e.target.result;//here it takes the img url
                     img.src = imagefile;
-                     const response = await fetch("https://restaurant-app-61ro.onrender.com/userprofileimg", {
-                                    method: "POST",
-                                    headers: { "Content-Type": "application/json" },
-                                    body: JSON.stringify({ imgURL: imagefile }),
-                                    credentials: "include"
+                    // const response = await fetch("https://restaurant-app-61ro.onrender.com/userprofileimg", {
+                                   // method: "POST",
+                                   // headers: { "Content-Type": "application/json" },
+                                    //body: JSON.stringify({ imgURL: imagefile }),
+                                   // credentials: "include"
 
-                                });
+                               // });
                 };
 
                 reader.readAsDataURL(imgurl);//after it reads the file and convert to actual url it automatically called this "reader.onload = function (e) "
