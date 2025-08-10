@@ -10,6 +10,7 @@ const Order = require("./order_schema.js");
 const cartt = require("./cart_schema.js");
 const cartt2 = require("./subtotal_schema.js");
 const favv = require("./fav_schema.js");
+const profileimg = require("./userprofile.js");
 const book = require("./book_a_table_schema.js")
 const usersenddata = require("./contact_us_message.js")
 const paypal = require('@paypal/checkout-server-sdk');
