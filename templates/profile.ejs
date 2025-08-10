@@ -132,15 +132,15 @@
         const img = document.querySelector(".profile-image")
         const label = document.querySelector("#profileimg")
 
-       // const imgfile = await fetch("https://restaurant-app-61ro.onrender.com/getuserprofileimg", {
-                                  //  method: "POST",
-                                  //  credentials: "include"
-                               // });
-        //const data = await imgfile.json();
+        const imgfile = await fetch("https://restaurant-app-61ro.onrender.com/getuserprofileimg", {
+                                  method: "POST",
+                                  credentials: "include"
+                               });
+        const data = await imgfile.json();
  
-        //if (img && data.imgURL) {
-        //    img.src = data.imgURL ;
-        //}
+        if (img && data.imgURL) {
+             img.src = data.imgURL ;
+        }
         input.addEventListener("change", async function () {
             const imgurl = input.files[0]
             if (imgurl) {
