@@ -134,7 +134,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
         const imgfile = await fetch("https://restaurant-app-61ro.onrender.com/getuserprofileimg", {
                                   method: "POST",
-                                  headers: { "Content-Type": "application/json" },
                                   credentials: "include"
                                });
         const data = await imgfile.json();
