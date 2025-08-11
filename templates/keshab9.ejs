@@ -316,9 +316,9 @@
                                   method: "POST",
                                   credentials: "include"
                                });
-        const data = await imgfile.json();
-        if (savedimg && data.imgURL) {
-            document.querySelector(".imggg").src = data.imgURL
+        const URLdata = await imgfile.json();
+        if (savedimg && URLdata.imgURL) {
+            document.querySelector(".imggg").src = URLdata.imgURL
         }
             const response = await fetch('/user');
             const data = await response.json();
