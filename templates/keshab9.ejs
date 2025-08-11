@@ -309,11 +309,14 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 
-    <script>
-
-        const savedimg = localStorage.getItem("savedImage")
-        if (savedimg) {
-            document.querySelector(".imggg").src = savedimg
+    <script>     
+        const imgfile = await fetch("https://restaurant-app-61ro.onrender.com/getuserprofileimg", {
+                                  method: "POST",
+                                  credentials: "include"
+                               });
+        const data = await imgfile.json();
+        if (savedimg && data.imgURL) {
+            document.querySelector(".imggg").src = data.imgURL
         }
         document.addEventListener("DOMContentLoaded", async function () {
             const response = await fetch('/user');
