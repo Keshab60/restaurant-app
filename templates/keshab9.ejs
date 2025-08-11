@@ -312,13 +312,14 @@
     <script>     
         
         document.addEventListener("DOMContentLoaded", async function () {
+         const IMG=document.querySelector(".imggg")
          const imgfile = await fetch("https://restaurant-app-61ro.onrender.com/getuserprofileimg", {
                                   method: "POST",
                                   credentials: "include"
                                });
         const URLdata = await imgfile.json();
-        if (savedimg && URLdata.imgURL) {
-            document.querySelector(".imggg").src = URLdata.imgURL
+        if (IMG && URLdata.imgURL) {
+           IMG.src = URLdata.imgURL
         }
             const response = await fetch('/user');
             const data = await response.json();
