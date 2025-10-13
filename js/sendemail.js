@@ -10,8 +10,8 @@ async function sendEmail(to, subject, text) {
     port: 587,                     // TLS port
     secure: false,                 // true for 465, false for 587
     auth: {
-      user:keshabooooooooo7@gmail.com,
-      pass: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,
+      user:"keshabooooooooo7@gmail.com",
+      pass:"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",
     },
   });
 
