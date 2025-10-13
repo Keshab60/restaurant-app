@@ -310,40 +310,39 @@ app.get("/cart", isAuthenticated, async (req, res) => {
   res.render("cart", { cartf });
 });
 
-app.post("/api/cart", async (req, res) => {
+
+ app.post("/api/cart", async (req, res) => {
   try {
     console.log("---- Incoming cart API request ----");
     console.log("Request body:", req.body);
-    console.log("Session user:", req.session.user); // <== THIS might be undefined!
-    console.log(req.session.user._id)
-    // Check if session exists
+    console.log("Session user:", req.session.user);
+
     if (!req.session.user) {
       return res.status(401).json({ error: "User not logged in" });
     }
 
     const currentUserId = req.session.user._id;
-    console.log(req.body.Dishname)
-    const cart = new cartt({ ...req.body, userId: currentUserId });
-    const cartv = await cartt.findOne({ Dishname: req.body.Dishname, userId: currentUserId })
-    console.log(cartv)
 
-      if (cartv && cartv.Dishname == req.body.Dishname) {
-         await cartt.updateOne({ Dishname: cartv.Dishname }, {
-          $set:
-            { ItemQuantity: req.body.ItemQuantity, TotalPrice: req.body.TotalPrice }
-        })
-      } else {
-        await cart.save();
-      }
-    
-    res.status(201).json({ message: "cart info stored successfully!", cart });
+    // Check if item already exists
+    const existingCart = await cartt.findOne({ Dishname: req.body.Dishname, userId: currentUserId });
+
+    if (existingCart) {
+      // Update the existing item
+      existingCart.ItemQuantity = req.body.ItemQuantity;
+      existingCart.TotalPrice = req.body.TotalPrice;
+      await existingCart.save();
+      res.status(200).json({ message: "Cart updated successfully!", cart: existingCart });
+    } else {
+      // Save new item
+      const newCartItem = new cartt({ ...req.body, userId: currentUserId });
+      await newCartItem.save();
+      res.status(201).json({ message: "Cart added successfully!", cart: newCartItem });
+    }
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
+});
 
-
-
-})
 
 app.post("/api/cart/subtotal", async (req, res) => {
 
