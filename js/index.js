@@ -326,18 +326,16 @@ app.post("/api/cart", async (req, res) => {
     const cart = new cartt({ ...req.body, userId: currentUserId });
     const cartv = await cartt.findOne({ Dishname: req.body.Dishname, userId: currentUserId })
     console.log(cartv)
-    if (cartv) {
-      if (cartv.Dishname != req.body.Dishname) {
-        await cart.save();
-      } else {
-        await cartt.updateOne({ Dishname: cartv.Dishname }, {
+
+      if (cartv && cartv.Dishname == req.body.Dishname) {
+         await cartt.updateOne({ Dishname: cartv.Dishname }, {
           $set:
             { ItemQuantity: req.body.ItemQuantity, TotalPrice: req.body.TotalPrice }
         })
+      } else {
+        await cart.save();
       }
-    } else {
-      await cart.save();
-    }
+    
     res.status(201).json({ message: "cart info stored successfully!", cart });
   } catch (error) {
     res.status(500).json({ error: error.message });
