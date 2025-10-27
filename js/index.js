@@ -19,7 +19,8 @@ const sendEmail = require("./sendemail.js");
 const jwt = require("jsonwebtoken");
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000;
+
 
 const templatepath = path.join(__dirname, '../templates')
 app.set('view engine', 'ejs')
@@ -521,6 +522,6 @@ app.get('/logout', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`https://restaurant-app-61ro.onrender.com`)
+  console.log(`http://localhost:${port}`)
 })
 

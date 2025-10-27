@@ -10,8 +10,8 @@ async function sendEmail(to, subject, text) {
     port: 587,                     // TLS port
     secure: false,                 // true for 465, false for 587
     auth: {
-      user:"9a287e001@smtp-brevo.com",
-      pass:"53HCKbtILkaQmpFx", //hgdpjlfdbsajdzfy
+      user: "9a287e001@smtp-brevo.com",
+      pass: "53HCKbtILkaQmpFx", //hgdpjlfdbsajdzfy
     },
   });
 
