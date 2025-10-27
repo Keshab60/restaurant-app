@@ -2,7 +2,7 @@ const Brevo = require("@getbrevo/brevo");
 require("dotenv").config();
 
 const apiInstance = new Brevo.TransactionalEmailsApi();
-apiInstance.authentications["apiKey"].apiKey ="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";
+apiInstance.authentications["apiKey"].apiKey =process.env.BREVO_API_KEY;
 
 async function sendEmail(to, subject, text) {
   const sendSmtpEmail = {
