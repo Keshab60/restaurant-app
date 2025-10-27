@@ -16,7 +16,7 @@ async function sendEmail(to, subject, text) {
   });
 
   const mailOptions = {
-    from: `"Restaurant App" <keshabooooooooo7@gmail.com>`, // sender name and your email
+    from: `"Restaurant App" <goudakeshabg@gmail.com>`, // sender name and your email
     to,
     subject,
     text,
