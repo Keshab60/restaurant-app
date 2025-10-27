@@ -1,32 +1,22 @@
-const nodemailer = require("nodemailer");
+const Brevo = require("@getbrevo/brevo");
+require("dotenv").config();
 
-// Make sure you add your Brevo SMTP credentials in environment variables
-// BREVO_USER = your Brevo SMTP login (usually your Brevo email)
-// BREVO_PASS = your Brevo SMTP password (SMTP key generated from Brevo dashboard)
+const apiInstance = new Brevo.TransactionalEmailsApi();
+apiInstance.authentications["apiKey"].apiKey = process.env.BREVO_API_KEY;
 
 async function sendEmail(to, subject, text) {
-  const transporter = nodemailer.createTransport({
-    host: "smtp-relay.brevo.com", // Brevo SMTP host
-    port: 587,                     // TLS port
-    secure: false,                 // true for 465, false for 587
-    auth: {
-      user: "9a287e001@smtp-brevo.com",
-      pass: "53HCKbtILkaQmpFx", //hgdpjlfdbsajdzfy
-    },
-  });
-
-  const mailOptions = {
-    from: `"Restaurant App" <goudakeshabg@gmail.com>`, // sender name and your email
-    to,
-    subject,
-    text,
+  const sendSmtpEmail = {
+    sender: { email: "goudakeshabg@gmail.com", name: "Restaurant App" },
+    to: [{ email: to }],
+    subject: subject,
+    textContent: text,
   };
 
   try {
-    await transporter.sendMail(mailOptions);
-    console.log("Email sent to", to);
-  } catch (err) {
-    console.error("Error sending email:", err);
+    const response = await apiInstance.sendTransacEmail(sendSmtpEmail);
+    console.log("Email sent:", response.messageId || "Success");
+  } catch (error) {
+    console.error("❌ Error sending email:", error);
   }
 }
 
